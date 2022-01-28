@@ -1,0 +1,30 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+	<%!
+		// Declaration 내부에
+		// 1 ~ 10범위의 난수를 리턴하는 메서드
+		// int randomNumber() 를 선언해주세요.
+		int randomNumber(){
+			// 정수 1~10까지 발생시켜서 리턴하도록 로직 작성
+			 int result = (int)(Math.random() * 10) + 1;
+			return result;
+		}  
+				
+			
+	
+	%>
+		<h3>오늘의 행운의 숫자와 행운의 색깔</h3>
+		<p>행운의 숫자는 1~10 범위입니다. </p>
+		<p>행운의 숫자 : <b>여기 출력해주세요</b></p>
+		<p>색깔은 1/3확률로 바뀝니다. (빨강, 노랑, 파랑)</p>
+		<p>행운의 색깔 : <b>색깔은 여기에</b></p>
+		 
+</body>
+</html>

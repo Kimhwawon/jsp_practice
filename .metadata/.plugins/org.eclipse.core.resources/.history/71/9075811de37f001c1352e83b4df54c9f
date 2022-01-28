@@ -1,0 +1,19 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+	<!-- 스크립트릿 내부에는 자바 코드를 작성할 수 있으며
+	이 코드를 반영해 페이지가 구성됩니다.  -->
+	<% for(int i = 0; i < 3; i++){ %>
+		<h2>반복문 테스트1</h2>
+		<p>
+			반복이 잘 됩니다.
+		</p>
+	<% } %>
+</body>
+</html>
