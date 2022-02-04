@@ -29,7 +29,7 @@
 		<input type = "radio" name= "major" value="피부미용" > 피부미용&nbsp;
 		<input type = "radio" name= "major" value="메이크업" > 메이크업&nbsp;
 		<input type = "radio" name= "major" value="헤어미용" > 헤어미용&nbsp;
-		<input type = "radio" name= "major" value="네일아트" > 네일아트&nbsp;
+		<input type = "radio" name= "major" value="네일아트" > 네일아트&nbsp;<br/>
 		
 	
 	<input type = "reset"/>
