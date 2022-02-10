@@ -12,6 +12,13 @@
 	if(loginCheck != null){
 		response.sendRedirect("session_login.jsp");
 	}
+	// id pw가 null인경우는 session_login.jsp로 리다이렉트 시키는 로직을 추가
+	// if(idNull){
+		// reponse.sendRedirect("session_login.jsp");
+		// Ststem.out.println("아이디가 null인것인 확인되었습니다다. ");
+		// }
+	
+	
 	
 	// 로그인 로직 작성
 	
