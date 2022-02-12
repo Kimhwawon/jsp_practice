@@ -35,7 +35,7 @@ public class JDBCpstmtSelect {
 		// 		pstmt 변수를 만들어 세팅합니다. 
 		PreparedStatement pstmt = con.prepareStatement(sql);
 		// 		?에 들어갈 자료를 정의해줍니다. 
-		pstmt.setString(1,  uId);// 1번 ? 자리에 uId를 넣어주겠다는 의미
+		pstmt.setString(1,  uId);// 1번째  ? 자리에 uId를 넣어주겠다는 의미
 		// 4. 쿼리문 실행(SELECT 구문의 결과는 ResultSet으로 받는다)
 		ResultSet rs = pstmt.executeQuery();
 		if(rs.next()) {

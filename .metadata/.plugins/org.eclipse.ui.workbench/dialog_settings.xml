@@ -9,6 +9,7 @@
 	<section name="ZipFileImportWizard">
 		<item key="WizardZipFileResourceImportPage1.STORE_OVERWRITE_EXISTING_RESOURCES_ID" value="false"/>
 		<list key="WizardZipFileResourceImportPage1.STORE_SOURCE_NAMES_ID">
+			<item value="C:\Users\ghktl\Desktop\20220209(강사).zip"/>
 			<item value="C:\Users\ghktl\Desktop\20220204_jsp.zip"/>
 		</list>
 	</section>
