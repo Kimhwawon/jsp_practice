@@ -60,6 +60,7 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
+<a href="login_form.jsp">로그인창으로 이동하기</a>
 </head>
 <body>
 
