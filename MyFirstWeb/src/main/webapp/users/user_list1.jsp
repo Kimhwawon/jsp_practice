@@ -53,7 +53,7 @@
 
 		// 문제는 현재 이 구문에서는 rs.next()가 rs.close()를 한 이후에 배칭되어 있어서
 		// 에러가 발생합니다. 
-%>    
+		%>
 <!DOCTYPE html>
 <html>
 <head>

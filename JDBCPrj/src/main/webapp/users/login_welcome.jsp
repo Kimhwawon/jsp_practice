@@ -23,5 +23,6 @@
 	<a href="logout.jsp">로그아웃하기</a><br/> <!-- 세션 파기 후 login_form.jsp로 보내주세요
 	login_form.jsp도 만약 로그인한 사용자가 접근하면 welcome페이지로 보내도록 로직을 살짝 수정해주세요.  -->
 	<a href="member_out.jsp">회원탈퇴하기</a><br/><!-- 회원 탈퇴를 위해 member_out.jsp를 만들어보겠습니다. -->
+	<a href="user_list2.jsp">유저목록보기</a><!--  회원목록보기 링크를 만들어주세요 -->
 </body>
 </html>
