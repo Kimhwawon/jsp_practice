@@ -6,7 +6,6 @@ INDEX VERSION 1.4+C:\eclipse\workspace2\.metadata\.plugins\org.eclipse.wst.jsdt.
 2754361637.index
 3161349497.index
 3161349497.index
-1779393449.index
 2347898108.index
 297493360.index
 1370479667.index
