@@ -1,3 +1,5 @@
+<%@page import="kr.co.ict.UserVO"%>
+<%@page import="kr.co.ict.UserDAO"%>
 <%@page import="java.sql.PreparedStatement"%>
 <%@page import="java.sql.DriverManager"%>
 <%@page import="java.sql.Connection"%>
@@ -14,7 +16,7 @@
 	// 2. session에 저장된 아이디를 변수로 저장해주세요. 
 	String sId = (String) session.getAttribute("session_id");
 	
-	
+	/*
 	// 3. DB접속정보 변수로 관리
 	String dbType = "com.mysql.cj.jdbc.Driver";
 	String dbUrl = "jdbc:mysql://localhost:3306/jdbcprac1";
@@ -52,7 +54,13 @@
 		e.printStackTrace();
 	} finally {
 	}
-	
+	*/
+	// 위쪽 3~6코드를 DAO로 대체해서 처리해주세요.
+	// DAO 생성
+	UserDAO dao = new UserDAO();
+	// update로직 호출
+	dao.updateCheck(sId, fPw, fName, fEmail);// void
+
 	// 7. body태그에 XXX 회원의 정보가 수정되었습니다. 라고 안내해주고
 	// 웰컴페이지로 들어갈 수 있는 링크 넣어주기
 	
@@ -67,5 +75,6 @@
 	<h1><%=sId %>회원의 정보가 수정되었습니다. </h1>
 	<a href="login_welcome.jsp"> 웰컴페이지로 돌아가기. </a>
 </body>
-</html>
+</html> 
+
 	

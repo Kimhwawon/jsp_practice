@@ -1,4 +1,5 @@
 
+<%@page import="kr.co.ict.UserDAO"%>
 <%@page import="java.sql.DriverManager"%>
 <%@page import="java.sql.Connection"%>
 <%@page import="java.sql.Driver"%>
@@ -19,7 +20,7 @@
 	// 폼에서 데이터를 가져오는 경우 (requset.getParameter())
 	// 세션에서 가져오는 경우 (session.getAttribute())
 	String sId = (String)session.getAttribute("session_id");
-
+/*
 	
 	// 1.DB연결용 변수선언
 	String dbType = "com.mysql.cj.jdbc.Driver";
@@ -42,6 +43,8 @@
 	// executeQuery() -> SELECT문 실행시, executeUpdate() -> SELECT문 이외 실행시.
 	
 	pstmt.executeUpdate();
+	
+
 	// 5. 자원 회수
 	con.close();
 	pstmt.close();
@@ -50,9 +53,18 @@
 	e.printStackTrace();
 	}finally{
 		//  삭제가 성공했건 실패했건 로그아웃에 접근한 자체로 세션 파기.
+		
+		
+		
+		
 		session.invalidate();
 	//	response.sendRedirect("login_form.jsp");
 	}
+	*/
+	// 삭제로직 구현
+	UserDAO dao = new UserDAO();
+	dao.deleteUser(sId);// void
+	session.invalidate(); // 세션파기(회원탈퇴라서 해줘야함)
 %>    
 <!DOCTYPE html>
 <html>

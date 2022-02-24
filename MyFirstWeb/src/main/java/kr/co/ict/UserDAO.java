@@ -137,7 +137,124 @@ public class UserDAO {
 		 return user; // DB에서 UserVO에 데이터를 받아주신 다음 null대신 받아온 데이터를 리턴하세요. 
 	 }
 	
+
+
+// updateCheck에 필요한 userUpdate메서드를 아래의 정의해주세요.
+// UPDATE구문을 실행하기 때문에 리턴 자료가 필요없고
+// update_check/jsp에 있는 쿼리문을 실행하기 위해
+// id, pw, name, email 정보를 모두 받아옵니다 .
+		public void updateCheck(String uId, String uPw, String uName, String uEmail) {
+			Connection con = null;
+			PreparedStatement pstmt = null;
+			// ResultSet은 SELECT구문에만 필요함
+	
+			try {
+				con = DriverManager.getConnection(dbUrl, dbId, dbPw); //db연결
+		 
+				
+				String sql = "UPDATE userinfo SET upw=?, uname=?, uemail=?, WHERE uid=?";
+				pstmt = con.prepareStatement(sql); // 퀴리문 세팅
+				pstmt.setString(1, uPw);
+				pstmt.setString(2, uName);
+				pstmt.setString(3, uEmail);
+				pstmt.setString(4, uId);
+		 
+		
+				pstmt.executeUpdate(); // executeQuery(); , executeUpdate();	//db에 업데이트구문 날려줌 
+		
+				// 5. catch, finally 블럭을 작성해주시고 finally에서 자원회수까지 마쳐주세요.
+			}catch(Exception e) {
+				e.printStackTrace();
+			} finally {
+				try {
+				// .close()는 무조건 try블럭에 있어야 하기 때문에 finally에서 추가로 try블럭 설정
+				con.close();
+				pstmt.close();
+			}catch(Exception e) {
+				e.printStackTrace();
+			}
+		
+		}
+	 
+	
+	
+	
 }
+		// member_out.jsp에서 사용할 탈퇴기능을 DAO로 이전시키겠습니다. 
+		// 메서드명은 deleteUser(String sId) 입니다. 
+		// DAO파일에 생성하신 후, member_out.jsp에서도 해당 메서드를 쓰도록 고쳐주세요. 
+		// 1. DAO에 메서드 생성후 바로 코드를 저한테 보내주시고
+		public void deleteUser(String sId) {
+			
+		
+		// 2. 고친 로직을 실행하는 member_out.jsp의 스크립트릿도 추가로 보내주세요. 
+			Connection con = null;
+			PreparedStatement pstmt = null;
+			
+			try {
+				con = DriverManager.getConnection(dbUrl, dbId, dbPw); //db연결
+				
+				String sql = "DELETE FROM userinfo WHERE uid=?";
+				pstmt = con.prepareStatement(sql); // 퀴리문 세팅
+				pstmt.setString(1, sId);
+				
+			}catch(Exception e) {
+				e.printStackTrace();
+			} finally {
+				try {
+				// .close()는 무조건 try블럭에 이써야 하기 때문에 finally에서 추가로 try블럭 설정
+				con.close();
+				pstmt.close();
+			}catch(Exception e) {
+				e.printStackTrace();
+			}
+		
+		}
+		}
+	 
+	
+	// 회원가입 로직 insertUser를 처리해주세요. 
+			public void insertUser(String uId, String uPw, String uName, String uEmail) {
+				
+				Connection con = null;
+				PreparedStatement pstmt = null;
+				
+				try {
+					con = DriverManager.getConnection(dbUrl, dbId, dbPw); //db연결
+					// String sql = "INSERT INTO userinfo VALUES(?, ?, ?, ?)";
+					String sql = "INSERT INTO userinfo VALUES(uid=?, upw=?, uname=?, uemail=?)";
+					pstmt = con.prepareStatement(sql); // 퀴리문 세팅
+					pstmt.setString(1, uId);
+					pstmt.setString(2, uPw);
+					pstmt.setString(3, uName);
+					pstmt.setString(4, uEmail);
+					
+				}catch(Exception e) {
+					e.printStackTrace();
+				} finally {
+					try {
+					// .close()는 무조건 try블럭에 이써야 하기 때문에 finally에서 추가로 try블럭 설정
+					con.close();
+					pstmt.close();
+				}catch(Exception e) {
+					e.printStackTrace();
+				}
+			
+			}
+			}
+		 
+				
+				
+				
+				
+				
+			}
+			
+			
+			
+			
+
+			
 
 
 
