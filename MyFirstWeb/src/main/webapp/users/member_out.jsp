@@ -62,7 +62,7 @@
 	}
 	*/
 	// 삭제로직 구현
-	UserDAO dao = new UserDAO();
+	UserDAO dao = UserDAO.getInstance();
 	dao.deleteUser(sId);// void
 	session.invalidate(); // 세션파기(회원탈퇴라서 해줘야함)
 %>    

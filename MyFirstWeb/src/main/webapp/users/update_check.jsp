@@ -57,7 +57,7 @@
 	*/
 	// 위쪽 3~6코드를 DAO로 대체해서 처리해주세요.
 	// DAO 생성
-	UserDAO dao = new UserDAO();
+	UserDAO dao = UserDAO.getInstance();
 	// update로직 호출
 	dao.updateCheck(sId, fPw, fName, fEmail);// void
 
