@@ -13,9 +13,6 @@
 	<form action="jstl_if.jsp" method="post">
 	<input type = "text" name="name" placeholder="이름">
 	<input type = "submit" value="제출"><br/>
-
-	
-	
 	</form>
 
 </body>

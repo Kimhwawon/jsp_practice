@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<%-- 페이지 내부에서 JSTL 태그를 쓰고 싶다면 디렉티블르 통해 taglib 선언을 해야합니다 --%>
+<%-- 페이지 내부에서 JSTL 태그를 쓰고 싶다면 디렉티브를 통해 taglib 선언을 해야합니다 --%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <% request.setCharacterEncoding("utf-8");%>
 <!DOCTYPE html>
