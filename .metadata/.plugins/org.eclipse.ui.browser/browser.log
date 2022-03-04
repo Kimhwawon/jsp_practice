@@ -1,3 +1,21 @@
 
 2월 03, 2022 15:27:56.164 NEW SESSION
 2월 03, 2022 15:27:56.164 기존 브라우저 세션에서 열기
+
+3월 04, 2022 09:26:45.922 NEW SESSION
+3월 04, 2022 09:26:45.922 [20120:12624:0304/092645.831:ERROR:assistance_home_client.cc(23)] File path C:\Users\ghktl\AppData\Local\Microsoft\Edge\User Data\Default
+3월 04, 2022 09:26:58.157 [20120:2156:0304/092658.143:ERROR:chrome_browser_main_extra_parts_metrics.cc(251)] START: GetDefaultBrowser(). If you don't see the END: message, this is crbug.com/1216328.
+3월 04, 2022 09:26:58.161 [20120:2156:0304/092658.147:ERROR:chrome_browser_main_extra_parts_metrics.cc(255)] END: GetDefaultBrowser()
+3월 04, 2022 09:27:36.556 [20120:12624:0304/092736.553:ERROR:fallback_task_provider.cc(123)] Every renderer should have at least one task provided by a primary task provider. If a "Renderer" fallback task is shown, it is a bug. If you have repro steps, please file a new bug and tag it as a dependency of crbug.com/739782.
+3월 04, 2022 10:08:07.923 [20120:12624:0304/100807.921:ERROR:wtm_interface_impl.cc(734)] SetTabTreatAsAppId(contents) failed, hr=0x80004005
+3월 04, 2022 10:17:58.527 [20120:12624:0304/101758.526:ERROR:wtm_interface_impl.cc(734)] SetTabTreatAsAppId(contents) failed, hr=0x80004005
+3월 04, 2022 12:48:33.213 [20120:12624:0304/124833.203:ERROR:fallback_task_provider.cc(123)] Every renderer should have at least one task provided by a primary task provider. If a "Renderer" fallback task is shown, it is a bug. If you have repro steps, please file a new bug and tag it as a dependency of crbug.com/739782.
+3월 04, 2022 12:50:01.547 [20120:12624:0304/125001.546:ERROR:fallback_task_provider.cc(123)] Every renderer should have at least one task provided by a primary task provider. If a "Renderer" fallback task is shown, it is a bug. If you have repro steps, please file a new bug and tag it as a dependency of crbug.com/739782.
+3월 04, 2022 12:58:38.825 [20120:12624:0304/125838.823:ERROR:wtm_interface_impl.cc(734)] SetTabTreatAsAppId(contents) failed, hr=0x80004005
+3월 04, 2022 13:00:28.828 [20120:12624:0304/130028.827:ERROR:wtm_interface_impl.cc(734)] SetTabTreatAsAppId(contents) failed, hr=0x80004005
+3월 04, 2022 14:07:20.593 [20120:12624:0304/140720.589:ERROR:wtm_interface_impl.cc(734)] SetTabTreatAsAppId(contents) failed, hr=0x80004005
+3월 04, 2022 14:28:41.108 [20120:12624:0304/142841.101:ERROR:fallback_task_provider.cc(123)] Every renderer should have at least one task provided by a primary task provider. If a "Renderer" fallback task is shown, it is a bug. If you have repro steps, please file a new bug and tag it as a dependency of crbug.com/739782.
+3월 04, 2022 14:28:44.345 [20120:12624:0304/142844.342:ERROR:fallback_task_provider.cc(123)] Every renderer should have at least one task provided by a primary task provider. If a "Renderer" fallback task is shown, it is a bug. If you have repro steps, please file a new bug and tag it as a dependency of crbug.com/739782.
+3월 04, 2022 14:28:48.691 [20120:12624:0304/142848.690:ERROR:fallback_task_provider.cc(123)] Every renderer should have at least one task provided by a primary task provider. If a "Renderer" fallback task is shown, it is a bug. If you have repro steps, please file a new bug and tag it as a dependency of crbug.com/739782.
+3월 04, 2022 14:28:56.98 [20120:12624:0304/142856.095:ERROR:fallback_task_provider.cc(123)] Every renderer should have at least one task provided by a primary task provider. If a "Renderer" fallback task is shown, it is a bug. If you have repro steps, please file a new bug and tag it as a dependency of crbug.com/739782.
+3월 04, 2022 14:29:02.703 [20120:12624:0304/142902.701:ERROR:fallback_task_provider.cc(123)] Every renderer should have at least one task provided by a primary task provider. If a "Renderer" fallback task is shown, it is a bug. If you have repro steps, please file a new bug and tag it as a dependency of crbug.com/739782.
