@@ -48,7 +48,11 @@ public class BoardDAO {
 		// boardTBL에 맞춰서 처리하기 위해 UserVO를 사용하는 부분을 전부 BoardVO로 수정해줍니다. 
 		
 		// 3-2. 쿼리문을 boardtbl 테이블에서 데이터를 가져오도록 수정합다. 
-		public List<BoardVO> getAllUserList(){
+		
+		// 3-3 while문 내부에서 Boardtbl 테이블에서 데이터를 가져오도록 수정합니다. 
+		public List<BoardVO> getAllBoardList(){
+
+			
 			// try 블럭 진입전에 Connection, PreparedStatement, ResultSet 선언
 			Connection con = null;
 			PreparedStatement pstmt = null;
@@ -60,8 +64,8 @@ public class BoardDAO {
 			// Connection, PreparedStatement, ResultSet을 선언합니다.
 				con = ds.getConnection();
 					
-			// SELECT * FROM userinfo  실행 및  ResultSet에 저장
-			String sql = "SELECT * FROM boardtbl";
+			// SELECT * FROM boardtbl  실행 및  ResultSet에 저장// ORDER BY board_num DESC";
+			String sql = "SELECT * FROM boardtbl ORDER BY board_num DESC";
 			pstmt = con.prepareStatement(sql);
 		
 			rs = pstmt.executeQuery();
@@ -97,5 +101,40 @@ public class BoardDAO {
 			}
 			return boardList;
 		}
+		
+		// insertBoard 내부 쿼리문 실행시 필요한 3개 요소인 글제목, 본문, 글쓴이를 입력해야만 실행할수 있게 설계합니다. 
+		public void insertBoard(String title, String content, String writer) {
+			// DB 연결구문을 작성해서 보내주세요. 
+			// try 블럭 진입전에 Connection, PreparedStatement, ResultSet 선언
+			Connection con = null;
+			PreparedStatement pstmt = null;
+			try {
+				// Connection, PreparedStatement, ResultSet을 선언합니다.
+				con = ds.getConnection();
+								
+				//INSERT의 경우  두 가지 유형이 있음
+				// 전체 컬럼 요소 다 넣기 - INSERT INTO boardTbl VALUES (null, ?, ?, ?, now(), now(), 0);
+				// 일부요소만 넣기 - INSERT INTO boardTbl(title, content, writer) VALUES (?, ?, ?);
+				String sql = "INSERT INTO boardTbl(title, content, writer) VALUES (?, ?, ?)";
+				pstmt = con.prepareStatement(sql);
+				// 실행 전 상단 쿼리문 ? 채워넣기
+				pstmt.setString(1, title);
+				pstmt.setString(2, content);
+				pstmt.setString(3, writer);
+				// 실행하기
+			}catch(Exception e) {
+				e.printStackTrace();
+			} finally {
+				try {
+					con.close();
+					pstmt.close();
+			}catch(SQLException e) {
+				e.printStackTrace();
+			}
+								
+		}
+		}}
 
-}
+
+
+		
