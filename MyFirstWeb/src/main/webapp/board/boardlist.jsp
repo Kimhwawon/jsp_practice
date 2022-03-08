@@ -9,17 +9,7 @@
 <title>Insert title here</title>
 </head>
 <body>
-	${boardList }
-	<hr/>
-	<!-- 출력방법 : 인덱싱이나 c:forEach를 이용해서 하나하나 꺼내준 다음
-	.변수명 을 적으면 출력됩니다. -->
-	0번째 요소 : ${boardList[0]}<br/>
-	1번째 요소 : ${boardList[1]}<br/>
-	2번째 요소 : ${boardList[2]}<br/>
-	<hr/>
-	전체 데이터 : ${boardList[0] }<br/>
-	글번호 : ${boardList[0].board_num }<br/>
-	글제목 : ${boardList[0].title }
+	
 	
 	<table class="table table-hover">
 		<thead>
@@ -36,7 +26,7 @@
     		<c:forEach var="board" items="${boardList}">
 	    		<tr>
 					<td>${board.board_num }</td>
-					<td>${board.title }</td>
+					<td><a href="http://localhost:8181/MyFirstWeb/boarddetail?board_num=${board.board_num}">${board.title }</a></td>
 					<td>${board.writer }</td>
 					<td>${board.bDate }</td>
 					<td>${board.mDate }</td>

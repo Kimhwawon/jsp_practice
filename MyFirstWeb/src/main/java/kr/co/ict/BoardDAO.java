@@ -40,7 +40,7 @@ public class BoardDAO {
 			return dao;
 		}
 
-		// 3. 필요로 하는 로직과 유사한 메서드를 복하해옵니다. 
+		// 3. 필요로 하는 로직과 유사한 메서드를 복사해옵니다. 
 		// 게시판 글 전체 목록 가져오기 -> 회원 전체 목록 가져오기를 이용해수정
 		// 회원 전체 목록을 가져오는 getAlluserList를 수정해 getAllBoardList()를 생성해보겠습니다. 
 		
@@ -64,7 +64,7 @@ public class BoardDAO {
 			// Connection, PreparedStatement, ResultSet을 선언합니다.
 				con = ds.getConnection();
 					
-			// SELECT * FROM boardtbl  실행 및  ResultSet에 저장// ORDER BY board_num DESC";
+			// SELECT * FROM boardtbl  실행 및  ResultSet에 저장
 			String sql = "SELECT * FROM boardtbl ORDER BY board_num DESC";
 			pstmt = con.prepareStatement(sql);
 		
@@ -101,40 +101,83 @@ public class BoardDAO {
 			}
 			return boardList;
 		}
-		
-		// insertBoard 내부 쿼리문 실행시 필요한 3개 요소인 글제목, 본문, 글쓴이를 입력해야만 실행할수 있게 설계합니다. 
-		public void insertBoard(String title, String content, String writer) {
-			// DB 연결구문을 작성해서 보내주세요. 
-			// try 블럭 진입전에 Connection, PreparedStatement, ResultSet 선언
-			Connection con = null;
-			PreparedStatement pstmt = null;
-			try {
-				// Connection, PreparedStatement, ResultSet을 선언합니다.
-				con = ds.getConnection();
-								
-				//INSERT의 경우  두 가지 유형이 있음
-				// 전체 컬럼 요소 다 넣기 - INSERT INTO boardTbl VALUES (null, ?, ?, ?, now(), now(), 0);
-				// 일부요소만 넣기 - INSERT INTO boardTbl(title, content, writer) VALUES (?, ?, ?);
-				String sql = "INSERT INTO boardTbl(title, content, writer) VALUES (?, ?, ?)";
-				pstmt = con.prepareStatement(sql);
-				// 실행 전 상단 쿼리문 ? 채워넣기
-				pstmt.setString(1, title);
-				pstmt.setString(2, content);
-				pstmt.setString(3, writer);
-				// 실행하기
-			}catch(Exception e) {
-				e.printStackTrace();
-			} finally {
-				try {
-					con.close();
-					pstmt.close();
-			}catch(SQLException e) {
-				e.printStackTrace();
+		// insertBoard 내부 쿼리문 실행시 필요한 3개 요소인 글제목, 본문, 글쓴이를 입력해야만 실행할수 있게 설계합니다.
+				public void insertBoard(String title, String content, String writer) {
+					// DB 연결구문을 작성해서 보내주세요.
+					// try블럭 진입 전 Connection, PreparedStatement 선언
+					Connection con = null;
+					PreparedStatement pstmt = null;
+					try {
+						// Connection, PreparedStatement, ResultSet을 선언합니다.
+						con = ds.getConnection();
+						
+						// INSERT의 경우 두 가지 유형이 있음
+						// 전체 컬럼 요소 다 넣기 - INSERT INTO boardTbl VALUES (null, ?, ?, ?, now(), now(), 0)
+						// 일부요소만 넣기 - INSERT INTO boardTbl(title, content, writer) VALUES (?, ?, ?)
+						String sql = "INSERT INTO boardTbl(title, content, writer) VALUES (?, ?, ?)";
+						pstmt = con.prepareStatement(sql);
+						// 실행 전 상단 쿼리문 ? 채워넣기
+						pstmt.setString(1, title);
+						pstmt.setString(2, content);
+						pstmt.setString(3, writer);
+						// 실행하기
+						pstmt.executeUpdate();
+					} catch(Exception e) {
+						e.printStackTrace();
+					} finally {
+						try {
+							con.close();
+							pstmt.close();
+						} catch(SQLException se) {
+							se.printStackTrace();
+						}
+					}	
+				}
+					
+					
+				// 글 한개가 필요한 상황이므로 BoardVO하나면 처리가능
+				// SELET * FROM boardTbl WHERE board_num = ?
+				public BoardVO getBoardDetail(int board_num) {
+					// DB연동 구문을 작성해보세요.
+					//try구문 초입에 ds부분 까지만 하셔도 되는 데 만약 다작성 가능하면 다 작성해보세요.
+					Connection con = null;
+					PreparedStatement pstmt = null;
+					ResultSet rs = null;
+					BoardVO board = null;
+					
+					try {
+						con = ds.getConnection();
+							
+					String sql = "SELECT * FROM boardTbl WHERE board_num = ?";
+					pstmt = con.prepareStatement(sql);
+					pstmt.setInt(1, board_num);
+				
+					rs = pstmt.executeQuery();
+					
+					if(rs.next()) {
+						int boardNum = rs.getInt("board_num");
+						String title = rs.getString("title");
+						String content = rs.getString("content");
+						String writer = rs.getString("writer");
+						Date bDate = rs.getDate("bdate");
+						Date mDate = rs.getDate("mdate");
+						int hit = rs.getInt("hit");
+						
+						board = new BoardVO(boardNum, title, content, writer, bDate, mDate, hit);
+					}
+					
+					}catch(Exception e) {
+						e.printStackTrace();
+					} finally {
+						try {
+							con.close();
+							pstmt.close();
+							rs.close();
+						}catch(SQLException e) {
+							e.printStackTrace();
+						}
+					
+					}
+					return board;
+				}
 			}
-								
-		}
-		}}
-
-
-
-		
