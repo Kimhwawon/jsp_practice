@@ -121,3 +121,15 @@
 3월 08, 2022 14:23:25.367 NEW SESSION
 3월 08, 2022 14:23:25.367 [17528:4316:0308/142325.361:ERROR:assistance_home_client.cc(23)] File path C:\Users\ghktl\AppData\Local\Microsoft\Edge\User Data\Default
 3월 08, 2022 14:31:11.341 [17528:4316:0308/143111.339:ERROR:fallback_task_provider.cc(124)] Every renderer should have at least one task provided by a primary task provider. If a "Renderer" fallback task is shown, it is a bug. If you have repro steps, please file a new bug and tag it as a dependency of crbug.com/739782.
+
+3월 10, 2022 11:35:10.663 NEW SESSION
+3월 10, 2022 11:35:10.663 [19024:15992:0310/113510.648:ERROR:assistance_home_client.cc(23)] File path C:\Users\ghktl\AppData\Local\Microsoft\Edge\User Data\Default
+3월 10, 2022 11:35:16.645 [19024:15992:0310/113516.643:ERROR:device_event_log_impl.cc(214)] [11:35:16.642] USB: usb_device_handle_win.cc:1049 Failed to read descriptor from node connection: 시스템에 부착된 장치가 작동하지 않습니다. (0x1F)
+3월 10, 2022 11:35:16.651 [19024:15992:0310/113516.648:ERROR:device_event_log_impl.cc(214)] [11:35:16.648] USB: usb_device_handle_win.cc:1049 Failed to read descriptor from node connection: 시스템에 부착된 장치가 작동하지 않습니다. (0x1F)
+3월 10, 2022 12:06:26.185 [19024:15992:0310/120626.180:ERROR:wtm_interface_impl.cc(734)] SetTabTreatAsAppId(contents) failed, hr=0x80004005
+3월 10, 2022 12:18:41.994 [19024:15992:0310/121841.991:ERROR:fallback_task_provider.cc(124)] Every renderer should have at least one task provided by a primary task provider. If a "Renderer" fallback task is shown, it is a bug. If you have repro steps, please file a new bug and tag it as a dependency of crbug.com/739782.
+3월 10, 2022 12:49:22.970 [19024:15992:0310/124922.967:ERROR:wtm_interface_impl.cc(734)] SetTabTreatAsAppId(contents) failed, hr=0x80004005
+3월 10, 2022 12:49:27.957 [19024:15992:0310/124927.956:ERROR:wtm_interface_impl.cc(734)] SetTabTreatAsAppId(contents) failed, hr=0x80004005
+3월 10, 2022 12:49:32.955 [19024:15992:0310/124932.953:ERROR:wtm_interface_impl.cc(734)] SetTabTreatAsAppId(contents) failed, hr=0x80004005
+3월 10, 2022 12:49:37.953 [19024:15992:0310/124937.952:ERROR:wtm_interface_impl.cc(734)] SetTabTreatAsAppId(contents) failed, hr=0x80004005
+3월 10, 2022 12:49:42.955 [19024:15992:0310/124942.954:ERROR:wtm_interface_impl.cc(734)] SetTabTreatAsAppId(contents) failed, hr=0x80004005
