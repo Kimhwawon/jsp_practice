@@ -215,29 +215,27 @@ public class BoardDAO {
 					
 				}
 				
-				public void getupdateBoard(String title, String content, int board_num) {
+				// update도 select가 아니므로 void리턴 자료형을 가집니다. 
+				public void boardUpdate(String title, String content, int bNum) {
+					// db연결 구문
+					// 진입전 connection,PreparedStatement 선언				
 					Connection con = null;
 					PreparedStatement pstmt = null;
-					
 					try {
+						// 선언
 						con = ds.getConnection();
 						
-				String sql = "UPDATE FROM boardTbl SET title=?, content=?, WHERE board_num=?";
+				String sql = "UPDATE boardTbl SET title=?, content=?, mdate=now() WHERE board_num=?";
 				
 				pstmt = con.prepareStatement(sql);
+				// 실행 전 상단 쿼리문? 채워넣기
 				pstmt.setString(1, title);
 				pstmt.setString(2, content);
-				pstmt.setInt(3, board_num);
+				pstmt.setInt(3, bNum);
 
 				// 실행하기
 				pstmt.executeUpdate();
-					
-					
-					
-					
-					
-					
-					
+				
 					}catch(Exception e) {
 						e.printStackTrace();
 					} finally {

@@ -37,7 +37,7 @@ public class BoardUpdateFormServlet extends HttpServlet {
 		// 3.  해당 글번호에 저장된 정보로 수정페이지를 채워야 하니 글 번호도 같이 넘겨지는지 체크해주세요. 
 		String strbNum = request.getParameter("board_num");
 		int bNum = Integer.parseInt(strbNum);
-		
+		System.out.println("수정페이지 진입 : " + bNum );
 		
 		// 수정 버튼을 눌렀을때 글제목, 글내용, 글쓴이 등이 기입된 상태로 수정창이 열려야 함
 		// 기입된 상태가 되려면 먼저 입력된 글 번호에 해당하는 글 정보를 DB에서 자바로 가져와야 합니다.
@@ -45,9 +45,9 @@ public class BoardUpdateFormServlet extends HttpServlet {
 		
 		// 1. DAO 생성
 		BoardDAO dao = BoardDAO.getInstance();
-		// 2. BoardDAO의 getAllBoardList() 호출해 전체 게시글 정보 받아오
+		// 2. BoardVO가져오기
 		BoardVO board= dao.getBoardDetail(bNum);
-		System.out.println(board);
+		System.out.println(board); //디버깅ㅈ
 		// 3. 가져온 데이터 바인딩
 		request.setAttribute("board", board);
 		// 4. 목적지로 포워딩

@@ -16,7 +16,7 @@
 	본문 : <textarea rows="15" cols="50">${board.content }</textarea><br/>
 	<a href="http://localhost:8181/MyFirstWeb/boardList">목록으로</a>
 	<form action="http://localhost:8181/MyFirstWeb/boardDelete" method="post">
-	<!-- 내부를 조금 고쳐서 글 번호를 넘기도록 만들어 저한테 보내주세요. -->
+
 		<input type="hidden" value="${board.board_num }" name="board_num">
 		<input type="submit" value="삭제하기">
 	</form>

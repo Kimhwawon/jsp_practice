@@ -33,7 +33,7 @@ public class BoardDeleteServlet extends HttpServlet {
 		
 		String strbNum = request.getParameter("board_num");
 		int bNum = Integer.parseInt(strbNum);
-				System.out.println("삭제페이지 접근 성공");
+				
 				
 				// 1. dao 생성
 				BoardDAO dao = BoardDAO.getInstance();
