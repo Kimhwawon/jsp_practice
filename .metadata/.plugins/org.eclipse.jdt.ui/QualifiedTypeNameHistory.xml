@@ -17,5 +17,7 @@
     <fullyQualifiedTypeName name="kr.co.ict.BoardDAO"/>
     <fullyQualifiedTypeName name="java.util.List"/>
     <fullyQualifiedTypeName name="kr.co.ict.BoardVO"/>
+    <fullyQualifiedTypeName name="kr.co.ict.servlet.service.BoardListService"/>
     <fullyQualifiedTypeName name="javax.servlet.RequestDispatcher"/>
+    <fullyQualifiedTypeName name="kr.co.ict.servlet.service.IBoardService"/>
 </qualifiedTypeNameHistroy>
