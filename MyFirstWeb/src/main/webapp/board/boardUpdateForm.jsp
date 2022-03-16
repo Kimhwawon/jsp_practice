@@ -9,7 +9,7 @@
 <body>
 	${board}
 	
-<form action="http://localhost:8181/MyFirstWeb/boardUpdate" method="post">
+<form action="http://localhost:8181/MyFirstWeb/boardUpdate.do" method="post">
 		<!-- 폼은 디테일 페이지 샹식을 가져오면 됩니다.  -->
 			<input type ="hidden" name="board_num" value="${board.board_num }">
 			글제목 : <input type="text" name="title" value="${board.title }" >

@@ -14,14 +14,14 @@
 	쓴날짜 : <input type="text" value="${board.bDate }" readonly>
 	마지막 수정 날짜 : ${board.mDate }<br/>
 	본문 : <textarea rows="15" cols="50">${board.content }</textarea><br/>
-	<a href="http://localhost:8181/MyFirstWeb/boardList">목록으로</a>
-	<form action="http://localhost:8181/MyFirstWeb/boardDelete" method="post">
+	<a href="http://localhost:8181/MyFirstWeb/boardList.do">목록으로</a>
+	<form action="http://localhost:8181/MyFirstWeb/boardDelete.do" method="post">
 
 		<input type="hidden" value="${board.board_num }" name="board_num">
 		<input type="submit" value="삭제하기">
 	</form>
 	
-	<form action="http://localhost:8181/MyFirstWeb/boardUpdateForm" method="post">
+	<form action="http://localhost:8181/MyFirstWeb/boardUpdateForm.do" method="post">
 	<!-- 내부를 조금 고쳐서 글 번호를 넘기도록 만들어 저한테 보내주세요. -->
 		<input type="hidden" value="${board.board_num }" name="board_num">
 		<input type="submit" value="수정하기">
