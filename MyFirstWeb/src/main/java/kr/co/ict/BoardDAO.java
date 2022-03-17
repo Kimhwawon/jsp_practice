@@ -144,7 +144,7 @@ public class BoardDAO {
 					PreparedStatement pstmt = null;
 					ResultSet rs = null;
 					BoardVO board = null;
-					
+					upHit(board_num);
 					try {
 						con = ds.getConnection();
 							
@@ -164,6 +164,7 @@ public class BoardDAO {
 						int hit = rs.getInt("hit");
 						
 						board = new BoardVO(boardNum, title, content, writer, bDate, mDate, hit);
+						upHit(boardNum);
 					}
 					
 					}catch(Exception e) {
@@ -249,8 +250,18 @@ public class BoardDAO {
 					
 			}
 					}
-				}
 
+				// 서비스가 아닌 getBoardDetail 실행시 자동으로 같이 실행하도록 처리하겠습니다. 
+				// 글 제목을 클릭할때마다 조회수를 상승시키는 메서드
+				private void upHit(int bId) {
+					
+					String sql = "UPDATE boardTbl SET hit = (hit +1) WHERE board_num=?";
+					
+						System.out.println("현재 조회된 글 번호 : " + bId);
+				}
+				
+}
+	
 
 				
 				
