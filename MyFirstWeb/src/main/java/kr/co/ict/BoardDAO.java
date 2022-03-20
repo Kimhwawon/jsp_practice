@@ -49,8 +49,9 @@ public class BoardDAO {
 		
 		// 3-2. 쿼리문을 boardtbl 테이블에서 데이터를 가져오도록 수정합다. 
 		
-		// 3-3 while문 내부에서 Boardtbl 테이블에서 데이터를 가져오도록 수정합니다. 
-		public List<BoardVO> getAllBoardList(){
+		// 3-3 while문 내부에서 Boardtbl 테이블에서 데이터를 가져오도록 수정합니다.
+		// 페이징 처리를 위해 페이지 번호를 추가로 입력받습니다. 
+		public List<BoardVO> getAllBoardList(int pageNum){
 
 			
 			// try 블럭 진입전에 Connection, PreparedStatement, ResultSet 선언
@@ -63,10 +64,11 @@ public class BoardDAO {
 			try {
 			// Connection, PreparedStatement, ResultSet을 선언합니다.
 				con = ds.getConnection();
-					
+					int limitNum = ((pageNum-1) * 10);
 			// SELECT * FROM boardtbl  실행 및  ResultSet에 저장
-			String sql = "SELECT * FROM boardtbl ORDER BY board_num DESC";
+			String sql = "SELECT * FROM boardtbl ORDER BY board_num DESC limit ?, 10";
 			pstmt = con.prepareStatement(sql);
+			pstmt.setInt(1, limitNum);
 		
 			rs = pstmt.executeQuery();
 			
@@ -144,7 +146,7 @@ public class BoardDAO {
 					PreparedStatement pstmt = null;
 					ResultSet rs = null;
 					BoardVO board = null;
-					upHit(board_num);
+					//upHit(board_num);// 조회수 올리는 로직을 실행한 다음 글정보 불러오게 처리
 					try {
 						con = ds.getConnection();
 							
@@ -164,7 +166,7 @@ public class BoardDAO {
 						int hit = rs.getInt("hit");
 						
 						board = new BoardVO(boardNum, title, content, writer, bDate, mDate, hit);
-						upHit(boardNum);
+						
 					}
 					
 					}catch(Exception e) {
@@ -253,14 +255,39 @@ public class BoardDAO {
 
 				// 서비스가 아닌 getBoardDetail 실행시 자동으로 같이 실행하도록 처리하겠습니다. 
 				// 글 제목을 클릭할때마다 조회수를 상승시키는 메서드
-				private void upHit(int bId) {
+				public void upHit(int bId) {
+					Connection con = null;
+					PreparedStatement pstmt = null;
+					try {
+						// 선언
+						con = ds.getConnection();
 					
+					// update문에 맞는 접속로직을 작성해주세요 (try~catch,connection, pstmt 생성 등 까지만 해주세요.
 					String sql = "UPDATE boardTbl SET hit = (hit +1) WHERE board_num=?";
 					
-						System.out.println("현재 조회된 글 번호 : " + bId);
-				}
+					pstmt = con.prepareStatement(sql);
+					pstmt.setInt(1, bId);
+					
+
+					pstmt.executeUpdate();
+					
+					}catch(Exception e) {
+						e.printStackTrace();
+					} finally {
+						try {
+						con.close();
+						pstmt.close();
+					}catch(SQLException e) {
+						e.printStackTrace();
+					}
+					
+					
+			}
+					}
+						
 				
-}
+				}
+	
 	
 
 				
