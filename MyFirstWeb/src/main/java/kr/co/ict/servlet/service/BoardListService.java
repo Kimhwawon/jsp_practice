@@ -47,6 +47,7 @@ public class BoardListService implements IBoardService {
 		
 		// 페이지 버튼 생성을 위한 글 개수 확인하기
 		int boardCount = dao.getPageNum();
+		System.out.println("게시물 총 갯수" + boardCount);
 		// 아래에 DTO를 생성해주시고 바인딩까지 해주세요. 
 		BoardDTO dto = new BoardDTO(boardCount, pNum);
 		System.out.println("페이징 처리 정보 :" + dto);

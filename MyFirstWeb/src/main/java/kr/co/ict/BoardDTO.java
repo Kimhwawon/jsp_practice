@@ -12,8 +12,8 @@ public class BoardDTO {
 	private int totalPages; //전체 페이지 개수
 	private int startPage; // 시작 페이지 번호
 	private int endPage; // 끝 페이지 번호
-	private static final int NAV_NUM = 5; // 페이지는 10개씩 링크 표시(하단에 깔릴 버튼은 10개씩)
-	private static final int BOARD_NUM = 20; // 글도10개씩 표시 (DAO의 limit 구문도 함께 수정해야함)
+	private static final int NAV_NUM = 10; // 페이지는 10개씩 링크 표시(하단에 깔릴 버튼은 10개씩)
+	private static final int BOARD_NUM = 10; // 글도10개씩 표시 (DAO의 limit 구문도 함께 수정해야함)
 	
 	// 생성자 생성시 모든 정보를 자동으로 구하도록 처리
 	public BoardDTO(int boardCount, int currentPage) {
@@ -80,13 +80,23 @@ public class BoardDTO {
 		return totalPages;
 	}
 	// 해당 페이지 그룹의 시작페이지
-	public int getStrartPage() {
+	public int getStartPage() {
 		return startPage; 
 	}
 	// 해당 페이지 그룹의 끝페이지
 	public int  getEndPage() {
 		return endPage;
 	}
+	
+	// ${dto.currentPage}와 같은 형태로 자료를 EL문법으로 얻어와 활용하기 위해 getter가 필요합니다. 
+	// currentPage에 대한 getter를 아래에 생성해주세요. 
+	public int getCurrentPage() {
+		return currentPage;
+	}
+	
+	
+	
+	
 	// 디버깅을 위한 toString
 	@Override
 	public String toString() {
